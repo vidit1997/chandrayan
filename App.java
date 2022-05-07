@@ -69,15 +69,8 @@ public class App {
 		 			HttpURLConnection http = (HttpURLConnection)con;
 		 			http.setRequestMethod("POST");
 		 			http.setDoOutput(true);
-		 			Map<String,String> arguments = new HashMap<>();
-		 			arguments.put("complete","true");
-		 			arguments.put("lake_id", k.toString()); 
 		 			
-		 			StringJoiner sj = new StringJoiner("&");
-		 			for(Map.Entry<String,String> entry1 : arguments.entrySet())
-		 			    sj.add(URLEncoder.encode(entry1.getKey(), "UTF-8") + "=" 
-		 			         + URLEncoder.encode(entry1.getValue(), "UTF-8"));
-		 			byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+					byte[] out =json.getBytes(StandardCharsets.UTF_8);
 		 			int length = out.length;
 		 			
 		 			http.setFixedLengthStreamingMode(length);
